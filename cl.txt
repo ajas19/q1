@@ -1,0 +1,9 @@
+printf("Enter the number:");
+	scanf("%d",&(checknum_1_arg.num));
+
+	result_1 = checknum_1(&checknum_1_arg, clnt);
+	if (result_1 == (char **) NULL) {
+		clnt_perror (clnt, "call failed");
+	}
+
+	printf("%s\n",*result_1);

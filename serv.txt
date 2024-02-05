@@ -1,0 +1,83 @@
+prime
+
+char **
+checknum_1_svc(input *argp, struct svc_req *rqstp)
+{
+	static char * result;
+
+	int num=argp->num;
+	int count=0;
+	for (int i = 2; i <= num; ++i)
+	{
+		if (num%i==0 && i!=num)
+		{
+			result="Enetered number is not primenumber";
+			return &result;
+		}
+	}
+	if (num==1)
+	{
+		result="Enetered number is not primenumber";	
+	}
+	else{
+		result="Entered number is a primenumber";
+	}
+
+	return &result;
+
+fact
+
+#include "fact.h"
+
+int *
+factorial_1_svc(number *argp, struct svc_req *rqstp)
+{
+	static int  result; 
+	int a= argp->num;
+   int total = 1;
+	
+        for (int i = 1; i <= a; i++) {
+            total *= i;
+        }
+        result=total;
+  
+	
+	return &result;
+}
+
+
+leap
+
+#include "leap.h"
+
+char **
+findleap_1_svc(year *argp, struct svc_req *rqstp)
+{
+	static char * result;
+
+	int a=argp->y;
+	if(a>0){
+		if(a<100){
+			if(a%4==0){
+				result="this is a leap year";
+			}
+			else{
+				result="this is not a leap year";
+
+			}
+		}
+		else if(a%400==0){
+				result="this is a leap year";
+
+		}
+		else{
+				result="this is not a leap year";
+
+		}
+	}
+
+
+	return &result;
+}
+
+gcd
